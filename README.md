@@ -57,9 +57,9 @@ Team Mates:
 
 ***Questions:***
 
-1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Fill answer here__.
-2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __Fill answer here__.
-3. Why must we commit and sync our current work on source control? ***(1 mark)*** __Fill answer here__.
+1. What is default OS used to run the virtual environment for codespaces. ***(1 mark)*** __Linux Environment__.
+2. What are the two options of ram, disk and vcpu configuration you can have in running codespaces . ***(1 mark)*** __(ram = 8GB and 16GB), (disk = 32GB), (vcpu = 2 core and 4 core)__.
+3. Why must we commit and sync our current work on source control? ***(1 mark)*** __for teamwork and backup recovery__.
 
 ## Exploring the Terminal
 
@@ -76,9 +76,26 @@ codespace
 
 Look at the TERMINAL tab. Run the following commands and provide the output here. 
 
-1. Run the command **pwd** . ***(1 mark)*** __Fill answer here__.
-2. Run the command **cat /etc/passwd** . ***(1 mark)*** __Fill answer here__.
-3. Run the command **df** . ***(1 mark)*** __Fill answer here__.
+1. Run the command **pwd** . ***(1 mark)*** 
+```bash
+ PS C:\Users\user\OneDrive - International Islamic University Malaysia\Documents\GitHub\OSProject> pwd
+
+Path                                                                                              
+----                                                                                              
+C:\Users\user\OneDrive - International Islamic University Malaysia\Documents\GitHub\OSProject
+```
+2. Run the command **cat /etc/passwd** . ***(1 mark)***
+```bash
+PS C:\Users\user\OneDrive - International Islamic University Malaysia\Documents\GitHub\OSProject> cat
+
+cmdlet Get-Content at command pipeline position 1
+Supply values for the following parameters:
+Path[0]:
+```
+3. Run the command **df** . ***(1 mark)*** 
+```bash
+
+```
 4. Run the command **du** . ***(1 mark)*** __Fill answer here__.
 5. Run the command **ls** . ***(1 mark)*** __Fill answer here__.
 6. Run the command **ls -asl** . ***(1 mark)*** __Fill answer here__.
