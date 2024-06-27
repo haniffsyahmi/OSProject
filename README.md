@@ -2,11 +2,11 @@
 
 Group Name: __Fill your team name__. 
 
-Section: __Fill your class section__. 
+Section: __Section 4__. 
 
 Team Mates:
 1. __Fill name__ and __matric no__
-2. __Fill name__ and __matric no__
+2. __MUHAMMAD HANIF SYAHMI BIN MOHD FITRI__ and __2223305__
 3. __Fill name__ and __matric no__
 
 ## Rules
@@ -24,8 +24,8 @@ Team Mates:
 
 ***Questions:***
 
-1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __Fill answer here__.
-2. How many files and folders are in this repository. ***(1 mark)*** __Fill answer here__.
+1. What is the link of the fork OSProject in your repository. ***(1 mark)*** __(https://github.com/haniffsyahmi/OSProject.git)__.
+2. How many files and folders are in this repository. ***(1 mark)*** __two which is images and readme__.
 
 
 ## Exploring github codespaces
