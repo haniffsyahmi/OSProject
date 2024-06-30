@@ -5,9 +5,8 @@ Group Name: __Fill your team name__.
 Section: __Section 4__. 
 
 Team Mates:
-1. __Fill name__ and __matric no__
-2. __MUHAMMAD HANIF SYAHMI BIN MOHD FITRI__ and __2223305__
-3. __Fill name__ and __matric no__
+1. __MUHAMMAD HANIF SYAHMI BIN MOHD FITRI__ and __2223305__
+2. __Fill name__ and __matric no__
 
 ## Rules
 1. You are allowed to have **3 group** members. *Exception* is allowed **IFF (if and only if)** you are allowed to have 4 group members if you are a **multinational** or a **multigender** group. 
