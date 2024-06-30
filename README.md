@@ -428,8 +428,8 @@ f65be1987f84   debian    "bash"    19 minutes ago   Exited (137) 18 seconds ago 
 
 ***Questions:***
 
-1. Are files in the container persistent. Why not?. ***(1 mark)*** __Fill answer here__.
-2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Fill answer here__.
+1. Are files in the container persistent. Why not?. ***(1 mark)*** __No, Docker containers are not persistent by default. They are like temporary workspaces; changes disappear when you stop the container because the container's file system is not saved.__.
+2. Can we run two, or three instances of debian linux? . ***(1 mark)*** __Sure, you can run multiple isolated instances of Debian Linux using Docker containers.__.
 
 ## Running your own container with persistent storage
 
@@ -448,14 +448,14 @@ At the terminal, create a new directory called **myroot**, and run a instance of
 
 ***Questions:***
 
-1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __Fill answer here__.
+1. Check the permission of the files created in myroot, what user and group is the files created in docker container on the host virtual machine? . ***(2 mark)*** __/workspaces/OSProject/myroot__.
 2. Can you change the permission of the files to user codespace.  You will need this to be able to commit and get points for this question. ***(2 mark)***
 ```bash
 //use sudo and chown
 sudo chown -R codespace:codespace myroot
 
 ```
-*** __Fill answer here__.***
+*** __@haniffsyahmi ➜ /workspaces/OSProject/myroot (main) $ sudo chown -R codespace:codespace /workspaces/OSProject/myroot__.***
 
 ## You are on your own, create your own static webpage
 
@@ -481,9 +481,9 @@ docker run --detach -v /workspaces/OSProject/webpage:/usr/local/apache2/htdocs/ 
 
 ***Questions:***
 
-1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Fill answer here__.
-2. What port is the apache web server running. ***(1 mark)*** __Fill answer here__.
-3. What port is open for http protocol on the host machine? ***(1 mark)*** __Fill answer here__.
+1. What is the permission of folder /usr/local/apache/htdocs and what user and group owns the folder? . ***(2 mark)*** __Ownership and permissions of /usr/local/apache/htdocs depend on the system, but typically it's owned by the web server user__.
+2. What port is the apache web server running. ***(1 mark)*** __port 80__.
+3. What port is open for http protocol on the host machine? ***(1 mark)*** __8080__.
 
 ## Create SUB Networks
 
@@ -502,11 +502,24 @@ docker run -itd --net rednet --name c2 busybox sh
 ```
 ***Questions:***
 
-1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __Fill answer here__.
-2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** __Fill answer here__.
-3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __Fill answer here__.
-4. What is the network address for the running container c1 and c2? ***(1 mark)*** __Fill answer here__.
-5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
+1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __Busybox (lightweight Unix env), --name assigns a custom name to the container__.
+2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** 
+```bash
+@haniffsyahmi ➜ /workspaces/OSProject/myroot/webpage (main) $ docker network ls
+NETWORK ID     NAME      DRIVER    SCOPE
+970ac2994dff   bluenet   bridge    local
+54ebe62c636a   bridge    bridge    local
+52ea66a31689   host      host      local
+b1947bda3f73   none      null      local
+512ba881020b   rednet    bridge    local
+```
+3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __bluenet is 172.18.0.1 and rednet is 172.19.0.1__.
+4. What is the network address for the running container c1 and c2? ***(1 mark)*** __bluenet is 172.18.0.2 and rednet is 172.19.0.2__.
+5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** ```
+```bash
+@haniffsyahmi ➜ /workspaces/OSProject/myroot/webpage (main) $ docker exec c1 ping c2
+ping: bad address 'c2'
+```
 
 ## Bridging two SUB Networks
 1. Let's try this again by creating a network to bridge the two containers in the two subnetworks
@@ -518,8 +531,17 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)*** 
+```bash
+@haniffsyahmi ➜ /workspaces/OSProject/myroot/webpage (main) $ docker exec c1 ping c2
+PING c2 (172.20.0.3): 56 data bytes
+64 bytes from 172.20.0.3: seq=0 ttl=64 time=0.118 ms
+64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.070 ms
+64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.081 ms
+64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.081 ms
+64 bytes from 172.20.0.3: seq=4 ttl=64 time=0.100 ms
+```
+2. What is different from the previous ping in the section above? ***(1 mark)*** __The previous one are not connected together__.
 
 ## Intermediate Level (10 marks bonus)
 
